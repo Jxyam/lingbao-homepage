@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特色美食 - 灵宝</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2D5BFF',
+                        secondary: '#FF7A30',
+                        dark: '#1A202C'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .bg-blur {
+                backdrop-filter: blur(10px);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+            }
+            .img-zoom {
+                overflow: hidden;
+            }
+            .img-zoom img {
+                transition: transform 0.5s ease;
+            }
+            .img-zoom:hover img {
+                transform: scale(1.08);
+            }
+            .food-tag {
+                @apply inline-block px-2 py-1 text-xs rounded-full;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-dark">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-dark/90 bg-blur shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white flex items-center">
+                <i class="fa fa-map-marker mr-2 text-secondary"></i>灵宝
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-white/80 hover:text-secondary transition-colors">首页</a>
+                <a href="culture.html" class="text-white/80 hover:text-secondary transition-colors">历史文化</a>
+                <a href="nature.html" class="text-white/80 hover:text-secondary transition-colors">生态资源</a>
+                <a href="food.html" class="text-secondary font-medium">特色美食</a>
+                <a href="attractions.html" class="text-white/80 hover:text-secondary transition-colors">旅游景点</a>
+            </div>
+            <button class="md:hidden text-white text-2xl" id="menuBtn">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="index.html" class="text-primary font-medium py-2 border-b border-gray-100">首页</a>
+                <a href="culture.html" class="text-dark hover:text-primary py-2 border-b border-gray-100">历史文化</a>
+                <a href="nature.html" class="text-dark hover:text-primary py-2 border-b border-gray-100">生态资源</a>
+                <a href="food.html" class="text-primary font-medium py-2 border-b border-gray-100">特色美食</a>
+                <a href="attractions.html" class="text-dark hover:text-primary py-2">旅游景点</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-16 relative h-64 flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://ts1.tc.mm.bing.net/th/id/R-C.6285dcd910268a083d973fde35276612?rik=QweO0fc2BxHcaQ&riu=http%3a%2f%2fprob09d619f.pic12.ysjianzhan.cn%2fupload%2fg00x.jpg&ehk=YyH%2fy4GI5OjBA7wFJzPkzlwwTqThFqxXXOVEl7gQ1Ow%3d&risl=&pid=ImgRaw&r=0" alt="灵宝美食" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark/60"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold text-white">特色美食</h1>
+            <p class="text-white/90 mt-2 text-lg">舌尖上的灵宝味道</p>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <section class="py-18 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">美食文化</span>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">豫秦晋风味的融合</h2>
+                <div class="w-16 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    灵宝地处豫秦晋三省交界，独特的地理位置造就了丰富多样的饮食文化，
+                    美食融合了三地风味，形成了独具特色的灵宝味道，每一道美食都承载着当地的生活智慧。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 1. 灵宝肉夹馍 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="img-zoom h-56">
+                        <img src="https://ts1.tc.mm.bing.net/th/id/R-C.6285dcd910268a083d973fde35276612?rik=QweO0fc2BxHcaQ&riu=http%3a%2f%2fprob09d619f.pic12.ysjianzhan.cn%2fupload%2fg00x.jpg&ehk=YyH%2fy4GI5OjBA7wFJzPkzlwwTqThFqxXXOVEl7gQ1Ow%3d&risl=&pid=ImgRaw&r=0" alt="灵宝肉夹馍" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-bold text-xl">灵宝肉夹馍</h3>
+                            <span class="food-tag bg-red-100 text-red-800">招牌美食</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                            灵宝肉夹馍与西安肉夹馍并称"中国两大肉夹馍"，是当地最具代表性的美食。
+                            饼皮采用特殊发酵工艺，外酥里嫩、层次分明；肉质选用上等五花肉，
+                            加入二十余种香料经6小时以上卤制，肥而不腻、瘦而不柴，
+                            夹入饼中再浇上秘制卤汁，口感醇厚，香气四溢。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <span class="ml-2">必吃TOP1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. 灵宝羊肉汤 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="img-zoom h-56">
+                        <img src="https://5b0988e595225.cdn.sohucs.com/images/20170817/070bf12372cb4e41a5c62cd4871a3b22.jpeg" alt="灵宝羊肉汤" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-bold text-xl">灵宝羊肉汤</h3>
+                            <span class="food-tag bg-orange-100 text-orange-800">冬季暖身</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                            灵宝羊肉汤以"鲜、香、浓、白"著称，选用本地散养山羊，经浸泡、焯水、
+                            慢炖等多道工序，煮出的汤白如奶，肉质鲜嫩无膻味。喝汤时可加入辣椒油、
+                            葱花、香菜等调料，搭配刚出炉的烧饼或烙饼，暖身养胃，
+                            是冬季当地群众最爱的美食。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star-half-o text-yellow-400 mr-1"></i>
+                            <span class="ml-2">人气之选</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. 甑糕 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="img-zoom h-56">
+                        <img src="https://ts2.tc.mm.bing.net/th/id/OIP-C.R_hu5ioNzsCf0NH0YPTF2wHaEn?rs=1&pid=ImgDetMain&o=7&rm=3" alt="甑糕" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-bold text-xl">甑糕</h3>
+                            <span class="food-tag bg-purple-100 text-purple-800">传统甜点</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                            甑糕是灵宝传统小吃，历史可追溯至唐代，选用优质糯米、大红枣、豆沙等原料，
+                            采用特殊的甑锅分层蒸制而成。成品色泽红亮，软糯香甜，糯米的黏糯与红枣的香甜
+                            完美融合，中间夹着细腻的豆沙，营养丰富，口感细腻。是当地群众喜爱的早餐和甜点，
+                            也是节日必备的传统食品。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star-o text-yellow-400 mr-1"></i>
+                            <span class="ml-2">甜党最爱</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. 脂油饼 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="img-zoom h-56">
+                        <img src="https://ts1.tc.mm.bing.net/th/id/R-C.a7f744d7dad8ae15b448cea6e7d9fa0b?rik=Sa%2bTkLeCC%2feKLQ&riu=http%3a%2f%2fn.sinaimg.cn%2fsinacn%2fw580h386%2f20171220%2ff867-fypvuqe3991977.jpg&ehk=PBD4OSb5XJV5DV8ZOB9RJxq%2b1MLYjQfUSwpQ93Ys0x0%3d&risl=&pid=ImgRaw&r=0" alt="脂油饼" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-bold text-xl">脂油饼</h3>
+                            <span class="food-tag bg-green-100 text-green-800">家常美食</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                            脂油饼是灵宝传统面食中的经典，以精制面粉、猪板油、葱花、椒盐等为原料，
+                            经过揉面、醒面、擀制、折叠、煎烤等多道工序制作而成。成品色泽金黄，
+                            外酥内软，层次分明，咬一口油香四溢，咸香可口，不油不腻。
+                            是当地群众喜爱的家常美食，也是待客的佳品。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star-o text-yellow-400 mr-1"></i>
+                            <span class="ml-2">面食经典</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. 石子馍 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="img-zoom h-56">
+                        <img src="https://ts1.tc.mm.bing.net/th/id/R-C.1e297552484471986d2cd64048d06183?rik=%2bpmF8xcPSHWWXw&riu=http%3a%2f%2fxc.xawdcy.com%2fuploads%2fimg1%2f20190820%2f5d5b70fc5719e.jpg&ehk=b%2bfFC4EaDbtHsx7jS7YZA3vTvh%2bOwV6cLiw2Bo75Y94%3d&risl=&pid=ImgRaw&r=0" alt="石子馍" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-bold text-xl">石子馍</h3>
+                            <span class="food-tag bg-blue-100 text-blue-800">民间小吃</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                            石子馍是灵宝民间传统小吃，制作工艺独特而古老。将面团擀成薄片，
+                            放在烧热的鹅卵石上烘烤而成，石子的高温让馍的表面形成均匀的焦痕，
+                            口感酥脆，咸香可口，带着淡淡的麦香。其历史可追溯至古代，
+                            曾是行军打仗的"军粮"，如今成为当地群众喜爱的零食和旅行佳品，便于携带和保存。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star-half-o text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star-o text-yellow-400 mr-1"></i>
+                            <span class="ml-2">怀旧零食</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. 炒凉粉 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="img-zoom h-56">
+                        <img src="https://cp1.douguo.com/upload/caiku/0/c/b/yuan_0c1740fa1a975d3eadb0539205c3842b.jpg" alt="炒凉粉" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="font-bold text-xl">炒凉粉</h3>
+                            <span class="food-tag bg-yellow-100 text-yellow-800">街头风味</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                            灵宝炒凉粉是当地极具特色的街头小吃，选用本地手工制作的豌豆凉粉，
+                            切成小块后放入锅中，加入葱姜蒜、辣椒面、花椒、酱油等调料翻炒，
+                            炒至凉粉表面微黄、入味十足。成品口感软糯又带着些许嚼劲，
+                            麻辣鲜香，香气扑鼻，是街头巷尾最受欢迎的小吃之一，
+                            深受当地人和游客喜爱。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star text-yellow-400 mr-1"></i>
+                            <i class="fa fa-star-o text-yellow-400 mr-1"></i>
+                            <span class="ml-2">街头爆款</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 美食文化 -->
+    <section class="py-18 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">饮食文化</span>
+                    <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-6">美食背后的故事与传承</h2>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        灵宝美食不仅是味觉的享受，更是文化的传承。当地饮食文化受道家养生理念影响深远，
+                        讲究"药食同源"、"五味调和"，注重食材的天然性和营养均衡，许多美食的制作工艺
+                        都传承了数百年，保留了传统的制作方法和独特风味。
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                                <i class="fa fa-leaf text-primary text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-lg mb-1">食材特点</h4>
+                                <p class="text-gray-600 text-sm">选用本地特产，绿色天然，新鲜优质，如本地山羊、小麦、红枣等，保证食材本味。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                                <i class="fa fa-fire text-primary text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-lg mb-1">制作工艺</h4>
+                                <p class="text-gray-600 text-sm">传统手工制作，代代相传，如肉夹馍的卤制、甑糕的蒸制，都是匠心之作。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mt-1 mr-3 flex-shrink-0">
+                                <i class="fa fa-globe text-primary text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-lg mb-1">风味特色</h4>
+                                <p class="text-gray-600 text-sm">融合豫秦晋三地风味，咸香适中，醇厚浓郁，回味悠长，兼具北方美食的豪放与精致。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://ts1.tc.mm.bing.net/th/id/OIP-C.EQxeDGWQTSlijVX4rB_KNwHaE7?rs=1&pid=ImgDetMain&o=7&rm=3" alt="美食文化" class="rounded-lg shadow-lg w-full h-64 object-cover card-hover">
+                    <img src="https://ts1.tc.mm.bing.net/th/id/R-C.2ed50d55054a2aad0ced8ffb3cffeab4?rik=RZZZu5lYcrfquA&riu=http%3a%2f%2f5b0988e595225.cdn.sohucs.com%2fimages%2f20180913%2f9cd38f3d28b74c0280ec93fcbf0e88c4.png&ehk=NeUwZhbBxkecJtqavOD%2fW46GaSebgdDt00j8u8COX8Y%3d&risl=&pid=ImgRaw&r=0" alt="美食文化" class="rounded-lg shadow-lg w-full h-80 mt-8 object-cover card-hover">
+                    <img src="https://ts2.tc.mm.bing.net/th/id/OIP-C.mfDeqncXzVj_vMGN9cOcKQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="美食文化" class="rounded-lg shadow-lg w-full h-80 object-cover card-hover">
+                    <img src="https://ts2.tc.mm.bing.net/th/id/OIP-C.5a1_RprNeGMmfhf6PasbhAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="美食文化" class="rounded-lg shadow-lg w-full h-64 mt-8 object-cover card-hover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 美食推荐店铺 -->
+    <section class="py-18 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">美食地图</span>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">人气美食店铺推荐</h2>
+                <div class="w-16 h-1 bg-primary mx-auto mb-8"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm card-hover">
+                    <h3 class="font-bold text-xl mb-3 flex items-center">
+                        <i class="fa fa-cutlery text-secondary mr-2"></i>老灵宝肉夹馍店
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        经营三十余年的老字号，正宗灵宝肉夹馍的代表，每天限量供应，
+                        肉香饼脆，回头客众多。
+                    </p>
+                    <div class="flex items-center text-gray-500 text-sm mb-2">
+                        <i class="fa fa-map-marker text-secondary mr-1"></i>
+                        <span>灵宝市新华西路126号</span>
+                    </div>
+                    <div class="flex items-center text-gray-500 text-sm">
+                        <i class="fa fa-phone text-secondary mr-1"></i>
+                        <span>138XXXX5678</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm card-hover">
+                    <h3 class="font-bold text-xl mb-3 flex items-center">
+                        <i class="fa fa-cutlery text-secondary mr-2"></i>北关羊肉汤馆
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        本地人气羊肉汤馆，选用散养山羊，汤鲜味美，
+                        烧饼现烤现卖，搭配羊肉汤堪称绝配。
+                    </p>
+                    <div class="flex items-center text-gray-500 text-sm mb-2">
+                        <i class="fa fa-map-marker text-secondary mr-1"></i>
+                        <span>灵宝市函谷路89号</span>
+                    </div>
+                    <div class="flex items-center text-gray-500 text-sm">
+                        <i class="fa fa-phone text-secondary mr-1"></i>
+                        <span>139XXXX3456</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm card-hover">
+                    <h3 class="font-bold text-xl mb-3 flex items-center">
+                        <i class="fa fa-cutlery text-secondary mr-2"></i>老城南甑糕铺
+                    </h3>
+                    <p class="text-gray-600 text-sm mb-4">
+                        传承五代的甑糕手艺，用料实在，软糯香甜，
+                        每天清晨开售，排队购买已成常态。
+                    </p>
+                    <div class="flex items-center text-gray-500 text-sm mb-2">
+                        <i class="fa fa-map-marker text-secondary mr-1"></i>
+                        <span>灵宝市南大街45号</span>
+                    </div>
+                    <div class="flex items-center text-gray-500 text-sm">
+                        <i class="fa fa-phone text-secondary mr-1"></i>
+                        <span>137XXXX8901</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h3 class="text-xl font-bold mb-6 flex items-center justify-center">
+                    <i class="fa fa-map-marker mr-2 text-secondary"></i>灵宝 - 黄河畔的千年古城
+                </h3>
+                <div class="border-t border-gray-800 w-1/3 mx-auto my-8"></div>
+                <p class="text-gray-400 text-sm">
+                    © 2025 灵宝家乡介绍
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) { 
+                navbar.classList.add('bg-dark/95', 'shadow-xl');
+                navbar.classList.remove('bg-dark/90', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-dark/95', 'shadow-xl');
+                navbar.classList.add('bg-dark/90', 'shadow-lg');
+            }
+        });
+
+        // 移动端菜单切换
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.getElementById('mobileMenu').classList.add('hidden');
+                document.querySelector(this.getAttribute('href'))?.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

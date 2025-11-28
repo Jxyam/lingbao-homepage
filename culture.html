@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历史文化 - 灵宝</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2D5BFF',
+                        secondary: '#FF7A30',
+                        dark: '#1A202C'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .bg-blur {
+                backdrop-filter: blur(10px);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-6px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-dark">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-dark/90 bg-blur shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white flex items-center">
+                <i class="fa fa-map-marker mr-2 text-secondary"></i>灵宝
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-white/80 hover:text-secondary transition-colors">首页</a>
+                <a href="culture.html" class="text-secondary font-medium">历史文化</a>
+                <a href="nature.html" class="text-white/80 hover:text-secondary transition-colors">生态资源</a>
+                <a href="food.html" class="text-white/80 hover:text-secondary transition-colors">特色美食</a>
+                <a href="attractions.html" class="text-white/80 hover:text-secondary transition-colors">旅游景点</a>
+            </div>
+            <button class="md:hidden text-white text-2xl" id="menuBtn">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="index.html" class="text-primary font-medium py-2 border-b border-gray-100">首页</a>
+                <a href="culture.html" class="text-primary font-medium py-2 border-b border-gray-100">历史文化</a>
+                <a href="nature.html" class="text-dark hover:text-primary py-2 border-b border-gray-100">生态资源</a>
+                <a href="food.html" class="text-dark hover:text-primary py-2 border-b border-gray-100">特色美食</a>
+                <a href="attractions.html" class="text-dark hover:text-primary py-2">旅游景点</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-16 relative h-64 flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://ts1.tc.mm.bing.net/th/id/R-C.29d8765e107c66ae35b846d63c371847?rik=FSTpfGlDDJvqsw&riu=http%3a%2f%2fwww.gotolvyou.com%2fuploads%2f190713%2f1-1ZG311333S19.jpg&ehk=A3d3BdHS5WsiYQWpn4KmUj0%2bIRDuRkhMr4%2bpjg7duGw%3d&risl=&pid=ImgRaw&r=0" alt="灵宝文化" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark/60"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold text-white">历史文化</h1>
+            <p class="text-white/90 mt-2 text-lg">传承千年的文明瑰宝</p>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <section class="py-18 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2">
+                    <!-- 道家文化 -->
+                    <div class="mb-16">
+                        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">核心文化</span>
+                        <h2 class="text-2xl font-bold mb-6 text-dark">道家文化发源地</h2>
+                        <div class="flex flex-col md:flex-row gap-8 items-center">
+                            <div class="md:w-1/2">
+                                <p class="text-gray-700 mb-4 leading-relaxed">
+                                    灵宝是道家文化的重要发源地，函谷关作为"千古雄关"，是道家文化的标志性地点。
+                                    相传春秋末期，老子骑青牛西出函谷关，关令尹喜恳请老子著书立说，
+                                    老子遂在此写下五千言的《道德经》，奠定了道家文化的理论基础。
+                                </p>
+                                <p class="text-gray-700 leading-relaxed">
+                                    函谷关现存太初宫、老子铜像、道德经碑刻等文化遗迹，
+                                    每年吸引大量海内外游客前来朝拜祈福，感受道家文化的深厚底蕴。
+                                    道家"道法自然"、"无为而治"的思想，至今仍对当地文化产生着深远影响。
+                                </p>
+                            </div>
+                            <div class="md:w-1/2">
+                                <img src="https://youimg1.c-ctrip.com/target/100w0w000000kb7d7FBE1.jpg" alt="道家文化" class="w-full h-auto rounded-lg shadow-lg card-hover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 黄帝文化 -->
+                    <div>
+                        <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">始祖文化</span>
+                        <h2 class="text-2xl font-bold mb-6 text-dark">黄帝文化传承地</h2>
+                        <div class="flex flex-col md:flex-row-reverse gap-8 items-center">
+                            <div class="md:w-1/2">
+                                <p class="text-gray-700 mb-4 leading-relaxed">
+                                    灵宝是黄帝文化的重要发祥地之一，境内的黄帝铸鼎原是黄帝统一华夏后铸鼎炼丹、
+                                    奠定邦国的圣地。据《史记》记载，黄帝"采首山铜，铸鼎于荆山下"，
+                                    鼎成之日，有龙垂胡须迎黄帝升天。
+                                </p>
+                                <p class="text-gray-700 leading-relaxed">
+                                    黄帝铸鼎原遗址包含有仰韶文化、龙山文化等多个时期的文化遗存，
+                                    是研究华夏文明起源的重要基地。每年农历二月初九，当地会举办黄帝文化旅游节，
+                                    开展祭祀大典、文化展演等活动，传承和弘扬黄帝文化。
+                                </p>
+                            </div>
+                            <div class="md:w-1/2">
+                                <img src="https://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/80d39b88a81226763dfe7eb873a9c04a.jpg_480x360x95_4f345b50.jpg" alt="黄帝文化" class="w-full h-auto rounded-lg shadow-lg card-hover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 侧边栏 -->
+                <div>
+                    <!-- 文化遗产 -->
+                    <div class="bg-gray-50 rounded-xl p-6 shadow-sm mb-8">
+                        <h3 class="font-bold text-lg mb-5 flex items-center">
+                            <i class="fa fa-university text-primary mr-2"></i>重要文化遗产
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start p-3 bg-white rounded-lg shadow-sm">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-medium">仰韶文化遗址</h4>
+                                    <p class="text-gray-600 text-sm">距今5000-7000年的新石器时代文化遗存</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start p-3 bg-white rounded-lg shadow-sm">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-medium">西坡遗址</h4>
+                                    <p class="text-gray-600 text-sm">全国重点文物保护单位，仰韶文化中期核心遗址</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start p-3 bg-white rounded-lg shadow-sm">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-medium">函谷关古建筑群</h4>
+                                    <p class="text-gray-600 text-sm">包括太初宫、关楼、藏经阁等明清建筑</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start p-3 bg-white rounded-lg shadow-sm">
+                                <i class="fa fa-check-circle text-secondary mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-medium">黄帝陵</h4>
+                                    <p class="text-gray-600 text-sm">纪念黄帝的重要场所，历史悠久</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 民俗文化 -->
+                    <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
+                        <h3 class="font-bold text-lg mb-5 flex items-center">
+                            <i class="fa fa-users text-primary mr-2"></i>传统民俗风情
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="p-3 bg-white rounded-lg shadow-sm">
+                                <h4 class="font-medium mb-1">函谷关庙会</h4>
+                                <p class="text-gray-600 text-sm">每年农历三月初三举办，集祭祀、商贸、娱乐于一体</p>
+                            </div>
+                            <div class="p-3 bg-white rounded-lg shadow-sm">
+                                <h4 class="font-medium mb-1">剪纸艺术</h4>
+                                <p class="text-gray-600 text-sm">传统民间艺术，题材丰富，工艺精湛</p>
+                            </div>
+                            <div class="p-3 bg-white rounded-lg shadow-sm">
+                                <h4 class="font-medium mb-1">皮影戏</h4>
+                                <p class="text-gray-600 text-sm">古老的民间戏曲形式，唱腔独特，表演生动</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 文化影响 -->
+    <section class="py-18 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">文化价值</span>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">文化的传承与影响</h2>
+                <div class="w-16 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    灵宝的历史文化不仅是当地的宝贵财富，更是华夏文明的重要组成部分
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-8 shadow-md card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-book text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4 text-center">历史传承</h3>
+                    <p class="text-gray-600 text-center">
+                        从仰韶文化到道家文化，从黄帝时期到明清时期，
+                        灵宝的文化传承从未中断，形成了完整的文化发展脉络。
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-md card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-globe text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4 text-center">文化影响</h3>
+                    <p class="text-gray-600 text-center">
+                        《道德经》的思想影响深远，黄帝文化是华夏民族的精神纽带，
+                        这些文化遗产对中国乃至世界都产生了重要影响。
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-md card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-leaf text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4 text-center">当代价值</h3>
+                    <p class="text-gray-600 text-center">
+                        传统文化与现代生活相结合，成为当地旅游发展的重要支撑，
+                        也为文化创新提供了丰富的灵感源泉。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h3 class="text-xl font-bold mb-6 flex items-center justify-center">
+                    <i class="fa fa-map-marker mr-2 text-secondary"></i>灵宝 - 黄河畔的千年古城
+                </h3>
+                <div class="border-t border-gray-800 w-1/3 mx-auto my-8"></div>
+                <p class="text-gray-400 text-sm">
+                    © 2025 灵宝家乡介绍
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) { 
+                navbar.classList.add('bg-dark/95', 'shadow-xl');
+                navbar.classList.remove('bg-dark/90', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-dark/95', 'shadow-xl');
+                navbar.classList.add('bg-dark/90', 'shadow-lg');
+            }
+        });
+
+        // 移动端菜单切换
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.getElementById('mobileMenu').classList.add('hidden');
+                document.querySelector(this.getAttribute('href'))?.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

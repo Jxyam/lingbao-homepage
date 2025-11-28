@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅游景点 - 灵宝</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2D5BFF',
+                        secondary: '#FF7A30',
+                        dark: '#1A202C'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .bg-blur {
+                backdrop-filter: blur(10px);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-6px);
+            }
+            .img-zoom {
+                overflow: hidden;
+            }
+            .img-zoom img {
+                transition: transform 0.5s ease;
+            }
+            .img-zoom:hover img {
+                transform: scale(1.08);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-dark">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-dark/90 bg-blur shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white flex items-center">
+                <i class="fa fa-map-marker mr-2 text-secondary"></i>灵宝
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-white/80 hover:text-secondary transition-colors">首页</a>
+                <a href="culture.html" class="text-white/80 hover:text-secondary transition-colors">历史文化</a>
+                <a href="nature.html" class="text-white/80 hover:text-secondary transition-colors">生态资源</a>
+                <a href="food.html" class="text-white/80 hover:text-secondary transition-colors">特色美食</a>
+                <a href="attractions.html" class="text-secondary font-medium">旅游景点</a>
+            </div>
+            <button class="md:hidden text-white text-2xl" id="menuBtn">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="index.html" class="text-primary font-medium py-2 border-b border-gray-100">首页</a>
+                <a href="culture.html" class="text-dark hover:text-primary py-2 border-b border-gray-100">历史文化</a>
+                <a href="nature.html" class="text-dark hover:text-primary py-2 border-b border-gray-100">生态资源</a>
+                <a href="food.html" class="text-dark hover:text-primary py-2 border-b border-gray-100">特色美食</a>
+                <a href="attractions.html" class="text-primary font-medium py-2">旅游景点</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-16 relative h-64 flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/id/1039/1920/1080" alt="灵宝旅游景点" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark/60"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(1.8rem,4vw,3rem)] font-bold text-white">旅游景点</h1>
+            <p class="text-white/90 mt-2 text-lg">人文与自然的完美融合</p>
+        </div>
+    </header>
+
+    <!-- 主要内容 -->
+    <section class="py-18 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">景点推荐</span>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">灵宝必游景点</h2>
+                <div class="w-16 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    灵宝拥有丰富的旅游资源，既有历史悠久的文化古迹，又有雄奇秀美的自然景观，
+                    每一处景点都值得细细品味。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 函谷关 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="img-zoom h-56">
+                        <img src="https://youimg1.c-ctrip.com/target/100w0w000000kb7d7FBE1.jpg" alt="函谷关" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="font-bold text-xl">函谷关</h3>
+                            <span class="bg-secondary/10 text-secondary text-xs font-medium px-2 py-1 rounded">5A景区</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            函谷关位于灵宝市函谷关镇，是中国历史上建置最早的雄关要塞之一，
+                            因《道德经》诞生地而闻名于世。景区内有关楼、太初宫、老子祠、
+                            道德经碑刻等众多景点，历史底蕴深厚。站在关楼上，可俯瞰黄河谷地，
+                            感受"一夫当关，万夫莫开"的雄关气势。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <span class="flex items-center mr-4"><i class="fa fa-map-marker text-secondary mr-1"></i> 函谷关镇</span>
+                            <span class="flex items-center"><i class="fa fa-ticket text-secondary mr-1"></i> 门票80元</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 黄帝陵 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="img-zoom h-56">
+                        <img src="https://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/80d39b88a81226763dfe7eb873a9c04a.jpg_480x360x95_4f345b50.jpg" alt="黄帝陵" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="font-bold text-xl">黄帝陵</h3>
+                            <span class="bg-secondary/10 text-secondary text-xs font-medium px-2 py-1 rounded">3A景区</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            黄帝陵位于灵宝市阳平镇铸鼎原，是中华民族始祖黄帝的陵寝所在地。
+                            相传黄帝在此铸鼎炼丹，鼎成升天。景区内有黄帝庙、铸鼎原、
+                            鼎湖等景点，是华夏儿女寻根问祖的圣地。每年农历二月初九，
+                            这里会举办盛大的黄帝文化旅游节，吸引大量游客前来祭拜。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <span class="flex items-center mr-4"><i class="fa fa-map-marker text-secondary mr-1"></i> 阳平镇</span>
+                            <span class="flex items-center"><i class="fa fa-ticket text-secondary mr-1"></i> 门票50元</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 亚武山 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="img-zoom h-56">
+                        <img src="https://so1.360tres.com/t01149df959e6d10033.jpg" alt="亚武山" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="font-bold text-xl">亚武山</h3>
+                            <span class="bg-secondary/10 text-secondary text-xs font-medium px-2 py-1 rounded">4A景区</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            亚武山国家级森林公园位于灵宝市豫灵镇，主峰海拔2413.8米，
+                            是河南省海拔最高的省级自然保护区。景区内山势雄伟，峰峦叠嶂，
+                            森林茂密，溪流潺潺，有玉锁关、迎客松、一线天等众多自然景观，
+                            是避暑度假、登山探险的理想之地。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <span class="flex items-center mr-4"><i class="fa fa-map-marker text-secondary mr-1"></i> 豫灵镇</span>
+                            <span class="flex items-center"><i class="fa fa-ticket text-secondary mr-1"></i> 门票60元</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 燕子山 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="img-zoom h-56">
+                        <img src="https://www.rl-consult.com/file/HGLS_ueditor/image/20201225/1608867042337054381.jpg" alt="燕子山" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="font-bold text-xl">燕子山</h3>
+                            <span class="bg-secondary/10 text-secondary text-xs font-medium px-2 py-1 rounded">4A景区</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            燕子山国家森林公园位于灵宝市川口乡，总面积7.2万亩，
+                            森林覆盖率达98%，是河南省最大的天然氧吧。景区内有万亩刺槐林、
+                            燕子峰、玉女湖等众多自然景观，空气清新，负氧离子含量高，
+                            是休闲度假、森林康养的好去处。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <span class="flex items-center mr-4"><i class="fa fa-map-marker text-secondary mr-1"></i> 川口乡</span>
+                            <span class="flex items-center"><i class="fa fa-ticket text-secondary mr-1"></i> 门票70元</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 西坡遗址 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="img-zoom h-56">
+                        <img src="https://thumbor.dahe.cn/picture/YUxIM216LWZmSi1CN3NnWXFYM1I3SUQxOURZPS9odHRwcyUzQS8vbW1iaXoucXBpYy5jbi9tbWJpel9qcGcvcE5oaWNVVnZqajcxRlZtWlpxaGZicmY4T1dCa3JHZnBqT1hBdmRpY1RJeXBaVWNSaWF4aEdQT3FZUFJyTW9OZlNWT0JjT3BoQU00aWJRc1FGNnRWQndHS1pBLzY0MCUzRnd4X2ZtdCUzRGpwZWc=" alt="西坡遗址" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="font-bold text-xl">西坡遗址</h3>
+                            <span class="bg-primary/10 text-primary text-xs font-medium px-2 py-1 rounded">全国重点文保单位</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            西坡遗址位于灵宝市阳平镇西坡村，是仰韶文化中期的核心遗址，
+                            距今已有5000多年历史。遗址出土了大量精美的彩陶、石器、骨器等文物，
+                            展现了仰韶文化时期先民的生产生活状况和高超的手工业水平。
+                            该遗址的发现为研究中国史前文明提供了重要的实物资料。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <span class="flex items-center mr-4"><i class="fa fa-map-marker text-secondary mr-1"></i> 阳平镇</span>
+                            <span class="flex items-center"><i class="fa fa-ticket text-secondary mr-1"></i> 门票40元</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 黄河湿地 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="img-zoom h-56">
+                        <img src="https://img.pconline.com.cn/images/upload/upc/tx/photoblog/1912/14/c6/184313116_1576326153735.jpg" alt="黄河湿地" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="font-bold text-xl">黄河湿地</h3>
+                            <span class="bg-primary/10 text-primary text-xs font-medium px-2 py-1 rounded">国家级自然保护区</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            灵宝黄河湿地国家级自然保护区位于黄河中游南岸，
+                            总面积2.8万公顷，是候鸟迁徙的重要停歇地和栖息地。
+                            每年冬季，这里都会迎来成千上万只候鸟，形成了壮观的候鸟奇观。
+                            保护区内水草丰美，风景秀丽，是观鸟、摄影、生态旅游的理想场所。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <span class="flex items-center mr-4"><i class="fa fa-map-marker text-secondary mr-1"></i> 黄河沿岸</span>
+                            <span class="flex items-center"><i class="fa fa-ticket text-secondary mr-1"></i> 免费开放</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 景点分类 -->
+    <section class="py-18 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">景点分类</span>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">不同类型的旅游体验</h2>
+                <div class="w-16 h-1 bg-primary mx-auto mb-8"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 文化古迹类 -->
+                <div class="bg-white rounded-xl p-8 shadow-md card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-university text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4 text-center">文化古迹类</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        承载着千年历史的文化遗产，见证了灵宝的发展变迁，
+                        是了解当地历史文化的重要窗口。
+                    </p>
+                    <ul class="space-y-2 text-center">
+                        <li class="text-gray-700"><i class="fa fa-check text-secondary mr-1"></i> 函谷关</li>
+                        <li class="text-gray-700"><i class="fa fa-check text-secondary mr-1"></i> 黄帝陵</li>
+                        <li class="text-gray-700"><i class="fa fa-check text-secondary mr-1"></i> 西坡遗址</li>
+                        <li class="text-gray-700"><i class="fa fa-check text-secondary mr-1"></i> 太初宫</li>
+                    </ul>
+                </div>
+
+                <!-- 生态资源类 -->
+                <div class="bg-white rounded-xl p-8 shadow-md card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-tree text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4 text-center">生态资源类</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        雄奇秀美的自然景观，空气清新，环境优美，
+                        是休闲度假、放松身心的理想选择。
+                    </p>
+                    <ul class="space-y-2 text-center">
+                        <li class="text-gray-700"><i class="fa fa-check text-secondary mr-1"></i> 亚武山</li>
+                        <li class="text-gray-700"><i class="fa fa-check text-secondary mr-1"></i> 燕子山</li>
+                        <li class="text-gray-700"><i class="fa fa-check text-secondary mr-1"></i> 黄河湿地</li>
+                        <li class="text-gray-700"><i class="fa fa-check text-secondary mr-1"></i> 窄口水库</li>
+                    </ul>
+                </div>
+
+                <!-- 民俗体验类 -->
+                <div class="bg-white rounded-xl p-8 shadow-md card-hover">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-users text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4 text-center">民俗体验类</h3>
+                    <p class="text-gray-600 text-center mb-6">
+                        感受当地独特的民俗风情，体验传统的生活方式，
+                        让旅游更具趣味性和参与感。
+                    </p>
+                    <ul class="space-y-2 text-center">
+                        <li class="text-gray-700"><i class="fa fa-check text-secondary mr-1"></i> 函谷关庙会</li>
+                        <li class="text-gray-700"><i class="fa fa-check text-secondary mr-1"></i> 黄帝文化旅游节</li>
+                        <li class="text-gray-700"><i class="fa fa-check text-secondary mr-1"></i> 传统手工艺体验</li>
+                        <li class="text-gray-700"><i class="fa fa-check text-secondary mr-1"></i> 农家生活体验</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 旅游小贴士 -->
+    <section class="py-18 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">旅游指南</span>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">旅游小贴士</h2>
+                <div class="w-16 h-1 bg-primary mx-auto mb-8"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-calendar text-primary text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">最佳旅游时间</h3>
+                    <p class="text-gray-600 text-sm">
+                        春秋两季（4-5月、9-10月）气候宜人，景色优美，
+                        是旅游的最佳时节。夏季可前往山区避暑，冬季可观赏候鸟。
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-bus text-primary text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">交通指南</h3>
+                    <p class="text-gray-600 text-sm">
+                        灵宝交通便利，连霍高速、陇海铁路穿境而过。
+                        市区有公交车、出租车等交通工具，前往各景点可乘坐旅游专线或包车。
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-shopping-bag text-primary text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">当地特产</h3>
+                    <p class="text-gray-600 text-sm">
+                        灵宝苹果、大枣、核桃、花椒等特产闻名遐迩，
+                        还有面豆、石子馍等特色小吃，是馈赠亲友的佳品。
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa fa-info-circle text-primary text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-3">注意事项</h3>
+                    <p class="text-gray-600 text-sm">
+                        山区景点气温较低，建议携带保暖衣物；户外活动注意防晒、防蚊虫；
+                        尊重当地风俗习惯，爱护环境；提前预订门票和住宿。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h3 class="text-xl font-bold mb-6 flex items-center justify-center">
+                    <i class="fa fa-map-marker mr-2 text-secondary"></i>灵宝 - 黄河畔的千年古城
+                </h3>
+                <div class="border-t border-gray-800 w-1/3 mx-auto my-8"></div>
+                <p class="text-gray-400 text-sm">
+                    © 2025 灵宝家乡介绍
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) { 
+                navbar.classList.add('bg-dark/95', 'shadow-xl');
+                navbar.classList.remove('bg-dark/90', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-dark/95', 'shadow-xl');
+                navbar.classList.add('bg-dark/90', 'shadow-lg');
+            }
+        });
+
+        // 移动端菜单切换
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.getElementById('mobileMenu').classList.add('hidden');
+                document.querySelector(this.getAttribute('href'))?.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

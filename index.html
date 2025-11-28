@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>灵宝 - 黄河畔的千年古城</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2D5BFF',
+                        secondary: '#FF7A30',
+                        dark: '#1A202C',
+                        light: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            }
+            .bg-blur {
+                backdrop-filter: blur(10px);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-6px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-dark">
+    <!-- 导航栏（固定顶部） -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-dark/90 bg-blur shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white flex items-center">
+                <i class="fa fa-map-marker mr-2 text-secondary"></i>灵宝
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-secondary font-medium">首页</a>
+                <a href="culture.html" class="text-white/80 hover:text-secondary transition-colors">历史文化</a>
+                <a href="nature.html" class="text-white/80 hover:text-secondary transition-colors">生态资源</a>
+                <a href="food.html" class="text-white/80 hover:text-secondary transition-colors">特色美食</a>
+                <a href="attractions.html" class="text-white/80 hover:text-secondary transition-colors">旅游景点</a>
+            </div>
+            <button class="md:hidden text-white text-2xl" id="menuBtn">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="index.html" class="text-primary font-medium py-2 border-b border-gray-100">首页</a>
+                <a href="culture.html" class="text-dark hover:text-primary py-2 border-b border-gray-100">历史文化</a>
+                <a href="nature.html" class="text-dark hover:text-primary py-2 border-b border-gray-100">生态资源</a>
+                <a href="food.html" class="text-dark hover:text-primary py-2 border-b border-gray-100">特色美食</a>
+                <a href="attractions.html" class="text-dark hover:text-primary py-2">旅游景点</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 头部横幅 -->
+    <header class="pt-16 relative h-[85vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://ts1.tc.mm.bing.net/th/id/R-C.6606d99d1bdf8cf02d90ea8a8048ae75?rik=siXp%2bsztVFywXg&riu=http%3a%2f%2fapp2img.dxhmt.cn%3a88%2flingbao%2f2020%2f10%2f13%2f2cf24f1011e7ccbe1c5961f1c4706303.jpg&ehk=li7DQKeeHkzV71fkqPTdoVMy0RP0I4hm2ykIfaca5qA%3d&risl=&pid=ImgRaw&r=0" alt="灵宝全景" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-dark/60 to-dark/30"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(2.2rem,6vw,3.8rem)] font-bold text-white mb-4 text-shadow">灵宝</h1>
+            <p class="text-white/90 text-[clamp(1rem,2vw,1.3rem)] max-w-2xl mx-auto">
+                黄河之畔的璀璨明珠 · 豫秦晋三省交界的千年古城
+            </p>
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+                <a href="#intro" class="bg-secondary hover:bg-secondary/90 text-white font-medium px-6 py-3 rounded-lg transition-all shadow-lg hover:shadow-xl">
+                    了解详情
+                </a>
+                <a href="attractions.html" class="bg-transparent border-2 border-white text-white hover:bg-white/10 font-medium px-6 py-3 rounded-lg transition-all">
+                    景点一览
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <a href="#intro"><i class="fa fa-chevron-down text-2xl"></i></a>
+        </div>
+    </header>
+
+    <!-- 城市简介 -->
+    <section id="intro" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">城市概况</span>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">灵宝简介</h2>
+                <div class="w-16 h-1 bg-primary mx-auto mb-8"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg">
+                    一座集历史底蕴、自然风光与民俗风情于一体的文化名城
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        灵宝市隶属于河南省三门峡市，位于豫秦晋三省交界处，南依秦岭，北濒黄河，
+                        是古长安通往中原的咽喉要道，素有"函谷古道"、"豫西门户"之称。市域总面积2121平方公里，
+                        常住人口约75万。
+                    </p>
+                    <p class="text-gray-700 mb-8 leading-relaxed">
+                        灵宝历史悠久，是中华民族重要的发祥地之一，早在新石器时代就有人类在此繁衍生息。
+                        境内文化遗产丰富，自然景观独特，既有道家文化的深厚底蕴，又有山川河流的壮美风光，
+                        是一座宜居宜游的文化旅游城市。
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <div class="text-3xl font-bold text-primary mb-2">2121</div>
+                            <p class="text-gray-500 text-sm">总面积(km²)</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <div class="text-3xl font-bold text-primary mb-2">75万</div>
+                            <p class="text-gray-500 text-sm">常住人口</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <div class="text-3xl font-bold text-primary mb-2">2100+</div>
+                            <p class="text-gray-500 text-sm">建城历史(年)</p>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <div class="text-3xl font-bold text-primary mb-2">12个</div>
+                            <p class="text-gray-500 text-sm">A级景区</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 grid grid-cols-2 gap-4">
+                    <img src="https://picsum.photos/id/1018/600/800" alt="灵宝风光" class="rounded-lg shadow-lg w-full h-64 object-cover card-hover">
+                    <img src="https://picsum.photos/id/1039/600/800" alt="灵宝风光" class="rounded-lg shadow-lg w-full h-80 mt-8 object-cover card-hover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心特色 -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">城市名片</span>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold mb-4">灵宝四大核心特色</h2>
+                <div class="w-16 h-1 bg-primary mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 历史文化 -->
+                <a href="culture.html" class="block">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-md h-full card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://youimg1.c-ctrip.com/target/100w0w000000kb7d7FBE1.jpg" alt="历史文化" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                <i class="fa fa-history text-primary text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-3">历史文化</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                道家文化发源地，黄帝文化重要传承地，仰韶文化遗址富集
+                            </p>
+                            <span class="inline-flex items-center text-primary font-medium text-sm">
+                                探索文化 <i class="fa fa-arrow-right ml-2"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 生态资源 -->
+                <a href="nature.html" class="block">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-md h-full card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://ts1.tc.mm.bing.net/th/id/R-C.b53aa4ebd0b87c47a08d761e4bd56560?rik=zCMUkTtWC15cgg&riu=http%3a%2f%2fvip-public.people.com.cn%2fphoto%2f2022%2f10%2f23%2f4e82b2a78ab6459180cbf0deabcb38dcD05d_s.jpg&ehk=SqNRYiS72sWBovupQljZWLE%2bS0zs8UIrxfJOPmZ3ZWs%3d&risl=&pid=ImgRaw&r=0" alt="自然风光" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                <i class="fa fa-tree text-primary text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-3">生态资源</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                黄河奔腾，秦岭叠翠，森林覆盖率高，自然景观雄奇秀美
+                            </p>
+                            <span class="inline-flex items-center text-primary font-medium text-sm">
+                                欣赏风光 <i class="fa fa-arrow-right ml-2"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 特色美食 -->
+                <a href="food.html" class="block">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-md h-full card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://ts1.tc.mm.bing.net/th/id/R-C.6285dcd910268a083d973fde35276612?rik=QweO0fc2BxHcaQ&riu=http%3a%2f%2fprob09d619f.pic12.ysjianzhan.cn%2fupload%2fg00x.jpg&ehk=YyH%2fy4GI5OjBA7wFJzPkzlwwTqThFqxXXOVEl7gQ1Ow%3d&risl=&pid=ImgRaw&r=0" alt="特色美食" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                <i class="fa fa-cutlery text-primary text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-3">特色美食</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                融合豫秦晋三地风味，肉夹馍、羊肉汤等美食享誉省内外
+                            </p>
+                            <span class="inline-flex items-center text-primary font-medium text-sm">
+                                品尝美味 <i class="fa fa-arrow-right ml-2"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 旅游景点 -->
+                <a href="attractions.html" class="block">
+                    <div class="bg-white rounded-xl overflow-hidden shadow-md h-full card-hover">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://so1.360tres.com/t017d72f0153cfaa80d.jpg" alt="旅游景点" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110">
+                        </div>
+                        <div class="p-6">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                <i class="fa fa-map-signs text-primary text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl mb-3">旅游景点</h3>
+                            <p class="text-gray-600 text-sm mb-4">
+                                函谷关、亚武山、黄帝陵等众多景点，人文与自然交相辉映
+                            </p>
+                            <span class="inline-flex items-center text-primary font-medium text-sm">
+                                打卡景点 <i class="fa fa-arrow-right ml-2"></i>
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 地理气候 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">地理环境</span>
+                    <h2 class="text-[clamp(1.5rem,3vw,2.2rem)] font-bold mb-6">地理与气候</h2>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        灵宝地处黄河中游南岸，秦岭山脉东延部分，地势南高北低，海拔从210米到2413.8米不等。
+                        境内地貌多样，有山地、丘陵、平原等多种地形，形成了独特的自然景观。
+                    </p>
+                    <p class="text-gray-700 mb-8 leading-relaxed">
+                        气候属暖温带大陆性半湿润季风气候，四季分明，光照充足，雨量适中。
+                        年平均气温13.8℃，年降水量641.8毫米，适宜多种动植物生长，也为农业发展提供了良好条件。
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-medium text-primary mb-2">气候特点</h4>
+                            <p class="text-gray-600 text-sm">四季分明 · 光照充足 · 雨热同期</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-medium text-primary mb-2">地形特征</h4>
+                            <p class="text-gray-600 text-sm">南高北低 · 山地为主 · 地貌多样</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://ts2.tc.mm.bing.net/th/id/OIP-C.xHs_pVzWERHLlRUzmrgmgwHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="灵宝地理环境" class="w-full h-auto rounded-xl shadow-xl">
+                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-lg shadow-lg max-w-xs hidden md:block">
+                        <h4 class="font-bold text-lg mb-2 text-primary">生态优势</h4>
+                        <p class="text-gray-600 text-sm">
+                            森林覆盖率达46.8%，空气质量优良天数常年保持在300天以上，是天然的氧吧。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h3 class="text-xl font-bold mb-6 flex items-center justify-center">
+                    <i class="fa fa-map-marker mr-2 text-secondary"></i>灵宝 - 黄河畔的千年古城
+                </h3>
+                <div class="border-t border-gray-800 w-1/3 mx-auto my-8"></div>
+                <p class="text-gray-400 text-sm">
+                    © 2025 灵宝家乡介绍
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) { 
+                navbar.classList.add('bg-dark/95', 'shadow-xl');
+                navbar.classList.remove('bg-dark/90', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-dark/95', 'shadow-xl');
+                navbar.classList.add('bg-dark/90', 'shadow-lg');
+            }
+        });
+
+        // 移动端菜单切换
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.getElementById('mobileMenu').classList.add('hidden');
+                document.querySelector(this.getAttribute('href'))?.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
